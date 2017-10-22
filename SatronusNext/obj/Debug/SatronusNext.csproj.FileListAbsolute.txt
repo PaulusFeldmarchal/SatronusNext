@@ -1,0 +1,15 @@
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\bin\Debug\SatronusNext.exe.config
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\bin\Debug\SatronusNext.exe
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\bin\Debug\SatronusNext.pdb
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\SatronusNext.csprojResolveAssemblyReference.cache
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\MainWindow.g.cs
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\App.g.cs
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\SatronusNext_MarkupCompile.cache
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\SatronusNext_MarkupCompile.lref
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\MainWindow.baml
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\SatronusNext.g.resources
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\SatronusNext.Properties.Resources.resources
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\SatronusNext.csproj.GenerateResource.Cache
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\SatronusNext.csproj.CoreCompileInputs.cache
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\SatronusNext.exe
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\SatronusNext.pdb
