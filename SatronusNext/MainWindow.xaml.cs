@@ -46,6 +46,7 @@ namespace SatronusNext
             singInButton.Visibility = System.Windows.Visibility.Hidden;
 
             backinMainMenuButton1.Visibility = System.Windows.Visibility.Visible;
+            tryToregisterButton.Visibility = System.Windows.Visibility.Visible;
 
         }
 
@@ -60,6 +61,7 @@ namespace SatronusNext
             singInButton.Visibility = System.Windows.Visibility.Visible;
 
             backinMainMenuButton1.Visibility = System.Windows.Visibility.Hidden;
+            tryToregisterButton.Visibility = System.Windows.Visibility.Hidden;
         }
 
         private void tryToregisterButton_Click(object sender, RoutedEventArgs e)

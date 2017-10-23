@@ -6,6 +6,14 @@
         xmlns:local="clr-namespace:SatronusNext"
         mc:Ignorable="d"
         Title="SatronusNext" Height="450" Width="600" Icon="Resources/logo2.png" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" >
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="buttonStyle">
+            <Setter Property="Height" Value="22"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Background" Value="#FF262632"/>
+            <Setter Property="TextBlock.Foreground" Value="LightGray"/>
+        </Style>
+    </Window.Resources>
     <Grid Background="#111221">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -14,15 +22,9 @@
             <RowDefinition Height="30"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <StackPanel Margin="10">
-            <StackPanel.Resources>
-                <Style TargetType="Button">
-                    <Setter Property="Foreground" Value="Gray" />
-                    <Setter Property="FontSize" Value="24" />
-                </Style>
-            </StackPanel.Resources>
-            <Image x:Name="logo" Grid.Row="1" Source="Resources/logo1.png"/>
-        <Button x:Name="buttonExit" Grid.Row="0" Margin="570,10,10,20" Click="buttonExit_Click" Opacity="0.995" Background="#00DDDDDD" BorderBrush="#00707070" >
+        <Image x:Name="logo" Grid.Row="1" Source="Resources/logo1.png"/>
+        <Button x:Name="buttonExit" Grid.Row="0" Margin="570,10,10,18" Click="buttonExit_Click" 
+                Opacity="0.995" Background="#00DDDDDD" BorderBrush="#00707070" Width="Auto" >
             <Image Source="Resources/closeButton.png" OpacityMask="#FF1D1818"/>
         </Button>
         <Grid Grid.Row="2">
@@ -33,29 +35,25 @@
                 <RowDefinition Height="25"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label x:Name="emailLabel" Grid.Row="1" FontSize="14" TextBlock.Foreground="LightGray" Margin="137,0,343,0" Content="Email:"/>
-            <TextBox TextBlock.LineStackingStrategy="BlockLineHeight" x:Name="emailTextBox" TextBlock.Foreground="LightGray" Grid.Row="1" Width="140" 
+            <Label x:Name="emailLabel" Grid.Row="1" FontSize="14" TextBlock.Foreground="LightGray" Margin="180,0,375,0" Content="Email:"/>
+            <TextBox TextBlock.LineStackingStrategy="BlockLineHeight" x:Name="emailTextBox" TextBlock.Foreground="LightGray" Grid.Row="1" 
                      BorderBrush="#00707070" Background="#FF262632"  
                      TabIndex="1" FontSize="14" AutoWordSelection="True"
-                     AcceptsReturn="False"/>
-            <PasswordBox  x:Name="passwordBox" TextBlock.Foreground="LightGray" Grid.Row="3" Width="140" 
+                     AcceptsReturn="False" Margin="230,0,200,0"/>
+            <PasswordBox  x:Name="passwordBox" TextBlock.Foreground="LightGray" Grid.Row="3" 
                      BorderBrush="#00707070" Background="#FF262632" 
-                     TabIndex="1" FontSize="14"/>
+                     TabIndex="1" FontSize="14" Margin="230,0,200,0"/>
             <Label x:Name="passwordLabel" Grid.Row="3" FontSize="14" TextBlock.Foreground="LightGray" 
-                   Margin="108,0,343,0" Content="Password:"/>
+                   Margin="156,0,370,0" Content="Password:"/>
         </Grid>
-        <Button x:Name="singInButton" Grid.Row="3" Height="22" 
-                Width="80" Margin="155,4,290,4" Background="#FF262632" TextBlock.Foreground="LightGray" 
+        <Button x:Name="singInButton" Grid.Row="3" Margin="155,4,290,4" Style="{StaticResource buttonStyle}"
                 Content="Sign On" Click="singInButton_Click" TabIndex="2"/>
-        <Button x:Name="signUpButton" Grid.Row="3" Height="22" 
-                Width="80" Margin="290,4,155,4" Background="#FF262632" TextBlock.Foreground="LightGray" 
+        <Button x:Name="signUpButton" Grid.Row="3" Margin="290,4,155,4" Style="{StaticResource buttonStyle}" 
                 Content="Sign Up" Click="signUpButton_Click" TabIndex="3"/>
-        <Button x:Name="backinMainMenuButton1" Grid.Row="3" Height="22" 
-            Width="80" Margin="510,4,10,4" Background="#FF262632" TextBlock.Foreground="LightGray" 
-            Content="Back" Click="backinMainMenuButton1_Click" TabIndex="3"/>
-        <Button x:Name="tryToregisterButton" Grid.Row="3" Height="22" 
-            Width="80" Margin="425,4,95,4" Background="#FF262632" TextBlock.Foreground="LightGray" 
-            Content="Back" Click="tryToregisterButton_Click" TabIndex="3"/>
+        <Button x:Name="backinMainMenuButton1" Grid.Row="3" Margin="510,4,10,4" Style="{StaticResource buttonStyle}"
+                Content="Back" Click="backinMainMenuButton1_Click" TabIndex="3" Visibility="Hidden"/>
+        <Button x:Name="tryToregisterButton" Grid.Row="3" Margin="425,4,95,4" Style="{StaticResource buttonStyle}"
+                Content="Continue" Click="tryToregisterButton_Click" TabIndex="3" Visibility="Hidden"/>
 
 
     </Grid>
