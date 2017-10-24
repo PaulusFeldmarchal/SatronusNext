@@ -32,6 +32,9 @@ namespace SatronusNext
 
         private void singInButton_Click(object sender, RoutedEventArgs e)
         {
+            ProgramWindow programWindow = new ProgramWindow();
+            programWindow.Show();
+            this.Hide();
 
         }
 
@@ -47,6 +50,18 @@ namespace SatronusNext
 
             backinMainMenuButton1.Visibility = System.Windows.Visibility.Visible;
             tryToregisterButton.Visibility = System.Windows.Visibility.Visible;
+            logoOnRegistration.Visibility = System.Windows.Visibility.Visible;
+            registrationLabel.Visibility = System.Windows.Visibility.Visible;
+            registrationNameLabel.Visibility = System.Windows.Visibility.Visible;
+            registrationSurnameLabel.Visibility = System.Windows.Visibility.Visible;
+            registrationEMailTextBox.Visibility = System.Windows.Visibility.Visible;
+            registrationPasswordLabel.Visibility = System.Windows.Visibility.Visible;
+            registrationRetryLabel.Visibility = System.Windows.Visibility.Visible;
+            registrationNameTextBox.Visibility = System.Windows.Visibility.Visible;
+            registrationSurnameTextBox.Visibility = System.Windows.Visibility.Visible;
+            registrationEMailLabel.Visibility = System.Windows.Visibility.Visible;
+            registrationPasswordBox.Visibility = System.Windows.Visibility.Visible;
+            registrationRetryPasswordBox.Visibility = System.Windows.Visibility.Visible;
 
         }
 
@@ -62,6 +77,18 @@ namespace SatronusNext
 
             backinMainMenuButton1.Visibility = System.Windows.Visibility.Hidden;
             tryToregisterButton.Visibility = System.Windows.Visibility.Hidden;
+            logoOnRegistration.Visibility = System.Windows.Visibility.Hidden;
+            registrationLabel.Visibility = System.Windows.Visibility.Hidden;
+            registrationNameLabel.Visibility = System.Windows.Visibility.Hidden;
+            registrationSurnameLabel.Visibility = System.Windows.Visibility.Hidden;
+            registrationEMailTextBox.Visibility = System.Windows.Visibility.Hidden;
+            registrationPasswordLabel.Visibility = System.Windows.Visibility.Hidden;
+            registrationRetryLabel.Visibility = System.Windows.Visibility.Hidden;
+            registrationNameTextBox.Visibility = System.Windows.Visibility.Hidden;
+            registrationSurnameTextBox.Visibility = System.Windows.Visibility.Hidden;
+            registrationEMailLabel.Visibility = System.Windows.Visibility.Hidden;
+            registrationPasswordBox.Visibility = System.Windows.Visibility.Hidden;
+            registrationRetryPasswordBox.Visibility = System.Windows.Visibility.Hidden;
         }
 
         private void tryToregisterButton_Click(object sender, RoutedEventArgs e)
