@@ -10,38 +10,33 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SatronusNext
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для RegistrationWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RegistrationWindow : Window
     {
-        public MainWindow()
+        public RegistrationWindow()
         {
             InitializeComponent();
         }
-
         private void buttonExit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
 
-        private void singInButton_Click(object sender, RoutedEventArgs e)
+        private void tryToregisterButton_Click(object sender, RoutedEventArgs e)
         {
-            ProgramWindow programWindow = new ProgramWindow();
-            programWindow.Show();
-            this.Close();
-            
+
         }
 
-        private void signUpButton_Click(object sender, RoutedEventArgs e)
+        private void backinMainMenuButton1_Click(object sender, RoutedEventArgs e)
         {
-            RegistrationWindow registrationWindow = new RegistrationWindow();
-            registrationWindow.Show();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
             this.Close();
         }
     }

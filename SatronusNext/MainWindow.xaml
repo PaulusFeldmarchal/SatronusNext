@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SatronusNext"
         mc:Ignorable="d"
-        Title="SatronusNext" Height="450" Width="600" Icon="Resources/logo2.png" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" >
+        Title="SatronusNext" Height="450" Width="600" Icon="Resources/logo2.png" 
+        WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" >
     <Window.Resources>
         <Style TargetType="Button" x:Key="buttonStyle">
             <Setter Property="Height" Value="22"/>
@@ -68,36 +69,6 @@
         <Button x:Name="signUpButton" Grid.Row="3" Margin="290,4,155,4" Style="{StaticResource buttonStyle}" 
                 Content="Sign Up" Click="signUpButton_Click" TabIndex="3"/>
 
-
-        <Button x:Name="backinMainMenuButton1" Grid.Row="3" Margin="510,4,10,4" Style="{StaticResource buttonStyle}"
-                Content="Back" Click="backinMainMenuButton1_Click" TabIndex="3" Visibility="Hidden"/>
-        <Button x:Name="tryToregisterButton" Grid.Row="3" Margin="425,4,95,4" Style="{StaticResource buttonStyle}"
-                Content="Continue" Click="tryToregisterButton_Click" TabIndex="3" Visibility="Hidden"/>
-        <TextBox x:Name="registrationNameTextBox" Grid.Row="1" Style="{StaticResource textBoxStyle}" 
-                 Margin="176,48,282,127" Visibility="Hidden"/>
-        <TextBox x:Name="registrationSurnameTextBox" Grid.Row="1" Style="{StaticResource ResourceKey=textBoxStyle}" 
-                 Margin="408,48,48,127" Visibility="Hidden"/>
-        <TextBox x:Name="registrationEMailTextBox" Grid.Row="1" Style="{StaticResource ResourceKey=textBoxStyle}" 
-                 Margin="176,102,282,73" Visibility="Hidden"/>
-        <PasswordBox x:Name="registrationPasswordBox"  Grid.Row="1" Style="{StaticResource ResourceKey=passwordBoxStyle}" 
-                     Margin="176,158,282,17" Visibility="Hidden"/>
-        <PasswordBox x:Name="registrationRetryPasswordBox" Grid.Row="1" Style="{StaticResource ResourceKey=passwordBoxStyle}" 
-                     Margin="408,158,48,17" Visibility="Hidden"/>
-        <Image x:Name="logoOnRegistration" Grid.Row="1" Height="25" Width="25" Source="Resources/logo2.png" 
-               Margin="10,10,565,165" Visibility="Hidden"/>
-        <Label x:Name="registrationLabel" Grid.Row="1" Margin="35,7,475,165" Content="Registration"
-                   Style="{StaticResource labelStyle}" RenderTransformOrigin="0.482,0.444" Visibility="Hidden"/>
-
-        <Label x:Name="registrationNameLabel" Grid.Row="1" Margin="121,45,429,127" Content="Name"
-            Style="{StaticResource labelStyle}" RenderTransformOrigin="0.482,0.444" Visibility="Hidden"/>
-        <Label x:Name="registrationSurnameLabel" Grid.Row="1" Margin="338,45,197,127" Content="Surname"
-            Style="{StaticResource labelStyle}" RenderTransformOrigin="0.482,0.444" Visibility="Hidden"/>
-        <Label x:Name="registrationEMailLabel" Grid.Row="1" Margin="127,99,429,73" Content="eMail"
-            Style="{StaticResource labelStyle}" RenderTransformOrigin="0.482,0.444" Visibility="Hidden"/>
-        <Label x:Name="registrationPasswordLabel" Grid.Row="1" Margin="103,155,429,17" Content="Password"
-            Style="{StaticResource labelStyle}" RenderTransformOrigin="0.482,0.444" Visibility="Hidden"/>
-        <Label x:Name="registrationRetryLabel" Grid.Row="1" Margin="360,155,197,17" Content="Retry"
-            Style="{StaticResource labelStyle}" RenderTransformOrigin="0.482,0.444" Visibility="Hidden"/>
         <Image Grid.Row="2" x:Name="EMailAlertImg" Source="Resources/alertImg.png" Margin="413,13,169,79" Visibility="Hidden"/>
         <Image Grid.Row="2" x:Name="PasswordlAlertImg" Source="Resources/alertImg.png" Margin="413,53,169,39" Visibility="Hidden"/>
     </Grid>
