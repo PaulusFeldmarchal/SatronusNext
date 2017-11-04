@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SatronusNext"
         mc:Ignorable="d"
-        Title="ProgramWindow" Height="300" Width="300">
+        Title="ProgramWindow" Height="600" Width="1000">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="125"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height ="60" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+        </Grid>
     </Grid>
 </Window>
