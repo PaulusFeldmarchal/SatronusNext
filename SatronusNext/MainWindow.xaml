@@ -58,7 +58,7 @@
             <Label x:Name="emailLabel" Grid.Row="1" Margin="180,0,375,0" Content="Email:" 
                    Style="{StaticResource labelStyle}"/>
             <TextBox x:Name="emailTextBox" Grid.Row="1" Style="{StaticResource textBoxStyle}" 
-                     TabIndex="1" Margin="230,0,200,0"/>
+                     TabIndex="1" Margin="230,0,200,0" TextChanged="emailTextBox_TextChanged"/>
             <PasswordBox  x:Name="passwordBox" Grid.Row="3" TabIndex="1" Margin="230,0,200,0" 
                           Style="{StaticResource passwordBoxStyle}"/>
             <Label x:Name="passwordLabel" Grid.Row="3" Margin="156,0,370,0" Content="Password:"

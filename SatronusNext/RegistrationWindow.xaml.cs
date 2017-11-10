@@ -39,5 +39,6 @@ namespace SatronusNext
             mainWindow.Show();
             this.Close();
         }
+
     }
 }

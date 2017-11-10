@@ -44,5 +44,13 @@ namespace SatronusNext
             registrationWindow.Show();
             this.Close();
         }
+
+        private void emailTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (emailTextBox.Text.Length == 0 || !emailTextBox.Text.Contains("@"))
+                EMailAlertImg.Visibility = System.Windows.Visibility.Visible;
+            else
+                EMailAlertImg.Visibility = System.Windows.Visibility.Hidden;
+        }
     }
 }
