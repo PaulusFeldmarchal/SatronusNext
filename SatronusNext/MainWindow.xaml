@@ -8,32 +8,13 @@
         Title="SatronusNext" Height="450" Width="600" Icon="Resources/logo2.png" 
         WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" >
     <Window.Resources>
-        <Style TargetType="Button" x:Key="buttonStyle">
-            <Setter Property="Height" Value="22"/>
-            <Setter Property="Width" Value="80"/>
-            <Setter Property="Background" Value="#FF262632"/>
-            <Setter Property="TextBlock.Foreground" Value="LightGray"/>
-        </Style>
-        <Style TargetType="TextBox" x:Key="textBoxStyle">
-            <Setter Property="TextBlock.Foreground" Value="LightGray"/>
-            <Setter Property="BorderBrush" Value="#00707070"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Background" Value="#FF262632"/>
-            <Setter Property="AcceptsReturn" Value="False"/>
-            <Setter Property="Height" Value="25"/>
-        </Style>
-        <Style TargetType="PasswordBox" x:Key="passwordBoxStyle">
-            <Setter Property="TextBlock.Foreground" Value="LightGray"/>
-            <Setter Property="BorderBrush" Value="#00707070"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Background" Value="#FF262632"/>
-            <Setter Property="Height" Value="25"/>
-        </Style>
-        <Style TargetType="Label" x:Key="labelStyle">
-            <Setter Property="TextBlock.Foreground" Value="LightGray"/>
-            <Setter Property="FontSize" Value="14"/>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AllStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
+
     <Grid Background="#111221">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -60,7 +41,7 @@
             <TextBox x:Name="emailTextBox" Grid.Row="1" Style="{StaticResource textBoxStyle}" 
                      TabIndex="1" Margin="230,0,200,0" TextChanged="emailTextBox_TextChanged"/>
             <PasswordBox  x:Name="passwordBox" Grid.Row="3" TabIndex="1" Margin="230,0,200,0" 
-                          Style="{StaticResource passwordBoxStyle}"/>
+                          Style="{StaticResource passwordBoxStyle}" PasswordChanged="passwordBox_PasswordChanged"/>
             <Label x:Name="passwordLabel" Grid.Row="3" Margin="156,0,370,0" Content="Password:"
                    Style="{StaticResource labelStyle}"/>
         </Grid>

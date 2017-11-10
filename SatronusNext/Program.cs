@@ -3,26 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SatronusNext.eventType;
 
 namespace SatronusNext
 {
-    class Program
+    public class Program
     {
         /*
          * User information, need to login and to synchronize with server
          */
-        private String EMailString { get; set; }
-        private String PasswordString { get; set; }
-        private String NameString { get; set; }
-        private String SurnameString { get; set; }
-        
+        public String EMailString { get; set; }
+        public String PasswordString { get; set; }
+        public String NameString { get; set; }
+        public String SurnameString { get; set; }
+
         /*
          * Information about new user, need to register
          */
-        private String RegistEMailString { get; set; }
-        private String RegistPasswordString { get; set; }
-        private String RegistNameString { get; set; }
-        private String RegistSurnameString { get; set; }
+        public String RegistEMailString { get; set; }
+        public String RegistPasswordString { get; set; }
+        public String RegistNameString { get; set; }
+        public String RegistSurnameString { get; set; }
 
     }
+
 }

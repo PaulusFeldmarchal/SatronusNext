@@ -19,6 +19,8 @@ namespace SatronusNext
     /// </summary>
     public partial class RegistrationWindow : Window
     {
+        private string passwordText { get; set;}
+
         public RegistrationWindow()
         {
             InitializeComponent();

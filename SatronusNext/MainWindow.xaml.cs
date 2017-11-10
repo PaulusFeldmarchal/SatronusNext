@@ -20,9 +20,16 @@ namespace SatronusNext
     /// </summary>
     public partial class MainWindow : Window
     {
+        static private Program program = new Program();
+        static public Program GetProgram()
+        {
+            return program;
+        }
+
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void buttonExit_Click(object sender, RoutedEventArgs e)
@@ -32,10 +39,14 @@ namespace SatronusNext
 
         private void singInButton_Click(object sender, RoutedEventArgs e)
         {
-            ProgramWindow programWindow = new ProgramWindow();
-            programWindow.Show();
-            this.Close();
-            
+            if (emailTextBox.Text.Length != 0 && emailTextBox.Text.Contains("@") && passwordBox.Password.Length != 0)
+            {
+                program.RegistEMailString = emailTextBox.Text;
+                program.PasswordString = passwordBox.Password;
+                ProgramWindow programWindow = new ProgramWindow();
+                programWindow.Show();
+                this.Close();
+            }
         }
 
         private void signUpButton_Click(object sender, RoutedEventArgs e)
@@ -51,6 +62,14 @@ namespace SatronusNext
                 EMailAlertImg.Visibility = System.Windows.Visibility.Visible;
             else
                 EMailAlertImg.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (passwordBox.Password.Length == 0)
+                PasswordlAlertImg.Visibility = System.Windows.Visibility.Visible;
+            else
+                PasswordlAlertImg.Visibility = System.Windows.Visibility.Hidden;
         }
     }
 }

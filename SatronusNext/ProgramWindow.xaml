@@ -5,8 +5,101 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SatronusNext"
         mc:Ignorable="d"
-        Title="ProgramWindow" Height="300" Width="300">
-    <Grid>
-        
+        Title="ProgramWindow" Height="600" Width="1000">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="buttonStyle">
+            <Setter Property="Background" Value="#FF262632"/>
+            <Setter Property="TextBlock.Foreground" Value="LightGray"/>
+        </Style>
+        <Style TargetType="Button" x:Key="EventButtonStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Width="{TemplateBinding Width}"  Height="{TemplateBinding Height}" >
+                            <Rectangle  Stroke="AntiqueWhite" 
+                                RadiusX="40" RadiusY="40" StrokeThickness="3" />
+                            <DockPanel Name="myContentPresenterDockPanel">
+                                <ContentPresenter x:Name="myContentPresenter" Margin="20" 
+          Content="{TemplateBinding  Content}" 
+          TextBlock.Foreground="Black" />
+                            </DockPanel>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Image" x:Key="imageStyle">
+
+        </Style>
+    </Window.Resources>
+    <Grid  >
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Background="#111221">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="125"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ResetButton" Grid.Row="2" Grid.Column="0" Style="{StaticResource buttonStyle}" >
+                    <Image Source="Resources/reset.png" RenderTransformOrigin="0.5,0.5" OpacityMask="#FF5B9E4C" >
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                </Button>
+                <Button x:Name="ExitButton" Grid.Row="2" Grid.Column="1" Style="{StaticResource buttonStyle}">
+                    <Image Source="Resources/closeButton.png" />
+                </Button>
+            </Grid>
+            <Image x:Name="UserPhoto" Grid.Row="0" Source="Resources/logo2.png" Stretch="Fill"/>
+            <Button x:Name="InformButton" Content="Information"  Grid.Row="1" Style="{StaticResource buttonStyle}" FontSize="24" FontFamily="Segoe Script"/>
+            <Button x:Name="UserInformationButton"  Content="Users Data" Grid.Row="2" Style="{StaticResource buttonStyle}" FontSize="36" FontFamily="Script MT Bold"/>
+        </Grid>
+        <Grid Grid.Column="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height ="60" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="72"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Filter :" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left"  Width="77"   FontFamily="Plantagenet Cherokee" FontSize="24" Grid.ColumnSpan="2" Height="32" Margin="0,14"/>
+                <TextBox Text="{Binding FilterText ,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Margin="5" />
+            </Grid>
+            <ListBox x:Name="EventsList" Grid.Row="1" HorizontalContentAlignment="Stretch" ItemsSource="{Binding Items}" >
+                <ListBox.ItemTemplate >
+                    <DataTemplate >
+                        <Button x:Name="EventButton" Height="100" Style="{StaticResource EventButtonStyle}" Margin="5">
+                            <Button.Content>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="{Binding Name}" Grid.Row="0" />
+                                    <TextBlock Text="{Binding Time}" Grid.Row="1" />
+                                </Grid>
+                            </Button.Content>
+                        </Button>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
     </Grid>
 </Window>

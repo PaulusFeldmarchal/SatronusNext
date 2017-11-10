@@ -11,9 +11,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SatronusNext.viewModel;
+using SatronusNext.eventType;
 
 namespace SatronusNext
 {
+
     /// <summary>
     /// Логика взаимодействия для ProgramWindow.xaml
     /// </summary>
@@ -22,6 +25,25 @@ namespace SatronusNext
         public ProgramWindow()
         {
             InitializeComponent();
+            Loaded += ProgramWindow_Loaded;
+        }
+
+        private void ProgramWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            AbstractEvent[] mass = new AbstractEvent[]{
+            new NoteEvent("Будильник 1",DateTime.Now), 
+            new NoteEvent("Будильник 2",DateTime.Now), 
+            new NoteEvent("Будильник 3", DateTime.Now),
+            new NoteEvent("Будильник 1",DateTime.Now),
+            new NoteEvent("Будильник 2",DateTime.Now),
+            new NoteEvent("Будильник 3", DateTime.Now),
+            new NoteEvent("Будильник 1",DateTime.Now),
+            new NoteEvent("Будильник 2",DateTime.Now),
+            new NoteEvent("Будильник 3", DateTime.Now)
+
+                };
+            DataContext = new EventViewModel(mass);
+
         }
     }
 }
