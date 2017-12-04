@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace SatronusNext.eventType
 {
-    class NoteEvent : AbstractEvent
+    public class Note : Event
     {
-        public NoteEvent() : base() {}
-        public NoteEvent(string name, DateTime time) : base(name,  time) { }
+        public Note() : base() {
+            PathPicture = "Resources/tasks.png";
+        }
+        public Note(string name, DateTime time, string text) : base(name,text,time) { PathPicture = "Resources/tasks.png"; }
 
     }
 }

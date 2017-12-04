@@ -21,15 +21,10 @@ namespace SatronusNext
     public partial class MainWindow : Window
     {
         static private Program program = new Program();
-        static public Program GetProgram()
-        {
-            return program;
-        }
 
         public MainWindow()
         {
             InitializeComponent();
-            
         }
 
         private void buttonExit_Click(object sender, RoutedEventArgs e)
@@ -41,11 +36,15 @@ namespace SatronusNext
         {
             if (emailTextBox.Text.Length != 0 && emailTextBox.Text.Contains("@") && passwordBox.Password.Length != 0)
             {
-                program.RegistEMailString = emailTextBox.Text;
+                program.EMailString = emailTextBox.Text;
                 program.PasswordString = passwordBox.Password;
-                ProgramWindow programWindow = new ProgramWindow();
-                programWindow.Show();
-                this.Close();
+                if (program.tryToSignIn())
+                {
+                    ProgramWindow programWindow = new ProgramWindow();
+                    programWindow.program = program;
+                    programWindow.Show();
+                    this.Close();
+                }
             }
         }
 

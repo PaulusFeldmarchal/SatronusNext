@@ -26,4 +26,25 @@
             <Setter Property="TextBlock.Foreground" Value="LightGray"/>
             <Setter Property="FontSize" Value="14"/>
         </Style>
+
+    <Style TargetType="Button" x:Key="EventButtonStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid Width="{TemplateBinding Width}"  Height="{TemplateBinding Height}" >
+                        <Rectangle  Stroke="#FFAA3E7E" 
+                                RadiusX="40" RadiusY="40" StrokeThickness="3" />
+                        <DockPanel Name="myContentPresenterDockPanel">
+                            <ContentPresenter x:Name="myContentPresenter" Margin="20" 
+          Content="{TemplateBinding  Content}" 
+          TextBlock.Foreground="Black" />
+                        </DockPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="Image" x:Key="imageStyle">
+
+    </Style>
 </ResourceDictionary>

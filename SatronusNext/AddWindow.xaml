@@ -1,0 +1,75 @@
+﻿<Window x:Class="SatronusNext.AddWindow"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SatronusNext"
+        xmlns:local1="clr-namespace:SatronusNext.viewModel"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"
+        Title="AddWindow" Height="340" Width="600">
+    <Window.DataContext>
+        <local1:AddViewModel />
+    </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AllStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Background="#111221">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="279*"/>
+            <ColumnDefinition Width="313*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="backinMainMenuButton1" Grid.Row="1"  Margin="212.021,4,21,4" Style="{DynamicResource buttonStyle}"
+                Content="Back"  TabIndex="3" Click="Close" Grid.Column="1"/>
+        <Button x:Name="tryToregisterButton" Grid.Row="1"  Command="{Binding ContCommand}"  Margin="123.021,4,110,4" Style="{DynamicResource buttonStyle}"
+                Content="Continue"  TabIndex="3" Click="Cont" Grid.Column="1"/>
+        <Button x:Name="FileButton" Grid.Row="0"  Command="{Binding BrowseCommand}" IsEnabled="{Binding IsEnablePath }" Margin="178,239,55,19" Style="{DynamicResource buttonStyle}"
+                Content="Browse"  TabIndex="3" Grid.Column="1"/>
+        <TextBox x:Name="ChangeNameTextBox" Grid.Row="0" Text="{Binding AddedName , Mode=TwoWay}" Style="{StaticResource textBoxStyle}" 
+                 Margin="111,15,33.979,240" />
+        <TextBox x:Name="ChangeTextTextBox" Grid.Row="0" Text="{Binding AddedText, Mode=TwoWay }" Style="{StaticResource textBoxStyle}" 
+                 Margin="50,57,201,168" Height="Auto" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="DateTextBox" Grid.Row="0"  Text="{Binding AddedDate , Mode=TwoWay}" Style="{StaticResource textBoxStyle}"  
+                 Margin="111,153,140,72" Height="Auto" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="FileTextBox" Grid.Row="0" IsEnabled="{Binding IsEnablePath }" Text="{Binding PathToSound, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource textBoxStyle}" 
+                 Margin="111,224,140,1" Height="Auto" Grid.ColumnSpan="2"/>
+
+
+
+        <Label x:Name="registrationNameLabel" Grid.Row="0" Margin="50,15,172.979,228" Content="Name :"
+            Style="{StaticResource labelStyle}" RenderTransformOrigin="0.482,0.444"/>
+        <Label x:Name="registrationEMailLabel" Grid.Row="0" Margin="10,80,213,165" Content="Text :"
+            Style="{StaticResource labelStyle}" RenderTransformOrigin="0.482,0.444"/>
+        <Label x:Name="DataChangeLabel" Grid.Row="0" Margin="50,173,172.979,72" Content="Data :"
+            Style="{StaticResource labelStyle}" RenderTransformOrigin="0.482,0.444"/>
+        <Label x:Name="FileLabel" Grid.Row="0" Margin="50,235,173,10" Content="Sound :"
+            Style="{StaticResource labelStyle}" RenderTransformOrigin="0.482,0.444"/>
+        <ComboBox Grid.Column="1" SelectedIndex="{Binding SelectedBoxIndex , Mode=OneWayToSource}" Margin="193,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.528,-2.693" >
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding BoxCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <ComboBoxItem IsSelected="True">
+                
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/1.png"  Width="60" Height="20" />
+                    <TextBlock>AlarmClock</TextBlock>
+                </StackPanel>
+            </ComboBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Resources/tasks.png" Width="60" Height="20"/>
+                <TextBlock>Note</TextBlock>
+            </StackPanel>
+        </ComboBox>
+
+    </Grid>
+</Window>

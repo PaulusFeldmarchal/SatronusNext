@@ -1,0 +1,43 @@
+﻿<Window x:Class="SatronusNext.UserInformationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SatronusNext"
+        mc:Ignorable="d"
+        Title="User Data" Height="186" Width="423" Loaded="InitInfo" Icon="Resources/logo2.png" ResizeMode="CanMinimize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AllStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Background="#111221">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="59*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Ellipse Grid.Row="0" Grid.Column="0" Margin="10">
+            <Ellipse.Fill>
+                <ImageBrush x:Name="ImageBrushPhoto" ImageSource="Resources/logo2.png" Stretch="UniformToFill" />
+            </Ellipse.Fill>
+        </Ellipse>
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <Label Style="{StaticResource labelStyle}" Content="Name:" HorizontalAlignment="Right"/>
+            <Label Style="{StaticResource labelStyle}" Content="Surname:" HorizontalAlignment="Right"/>
+            <Label Style="{StaticResource labelStyle}" Content="EMail:" HorizontalAlignment="Right"/>
+            <Button Style="{StaticResource buttonStyle}" Content="Change Photo" Click="Button_Click" Margin="0,25,0,0"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="2">
+            <Label Style="{StaticResource labelStyle}" HorizontalAlignment="Left" x:Name="labelName"/>
+            <Label Style="{StaticResource labelStyle}" HorizontalAlignment="Left" x:Name="labelSurname"/>
+            <Label Style="{StaticResource labelStyle}" HorizontalAlignment="Left" x:Name="lableEMail"/>
+        </StackPanel>
+    </Grid>
+</Window>

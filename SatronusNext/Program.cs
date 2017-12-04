@@ -10,20 +10,25 @@ namespace SatronusNext
     public class Program
     {
         /*
-         * User information, need to login and to synchronize with server
+         * User information
          */
         public String EMailString { get; set; }
         public String PasswordString { get; set; }
         public String NameString { get; set; }
         public String SurnameString { get; set; }
 
-        /*
-         * Information about new user, need to register
-         */
-        public String RegistEMailString { get; set; }
-        public String RegistPasswordString { get; set; }
-        public String RegistNameString { get; set; }
-        public String RegistSurnameString { get; set; }
+        public String ImageSource { get; set; }
+
+        public bool tryToRegist()
+        {
+            return true;
+        }
+
+        public bool tryToSignIn()
+        {
+            return true;
+        }
+
 
     }
 

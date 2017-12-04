@@ -22,6 +22,7 @@ namespace SatronusNext
     /// </summary>
     public partial class ProgramWindow : Window
     {
+        public Program program { get; set; }
         public ProgramWindow()
         {
             InitializeComponent();
@@ -30,20 +31,32 @@ namespace SatronusNext
 
         private void ProgramWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            AbstractEvent[] mass = new AbstractEvent[]{
-            new NoteEvent("Будильник 1",DateTime.Now), 
-            new NoteEvent("Будильник 2",DateTime.Now), 
-            new NoteEvent("Будильник 3", DateTime.Now),
-            new NoteEvent("Будильник 1",DateTime.Now),
-            new NoteEvent("Будильник 2",DateTime.Now),
-            new NoteEvent("Будильник 3", DateTime.Now),
-            new NoteEvent("Будильник 1",DateTime.Now),
-            new NoteEvent("Будильник 2",DateTime.Now),
-            new NoteEvent("Будильник 3", DateTime.Now)
+           
 
-                };
-            DataContext = new EventViewModel(mass);
+        }
 
+        private void ChangeClick(object sender, RoutedEventArgs e)
+        {
+            ChangeWindow changeWindow = new ChangeWindow();
+            changeWindow.Show();
+        }
+
+        private void AddClick(object sender, RoutedEventArgs e)
+        {
+            AddWindow addWindow = new AddWindow();
+            addWindow.Show();
+        }
+
+        private void UserInformationButton_Click(object sender, RoutedEventArgs e)
+        {
+            UserInformationWindow usrWind = new UserInformationWindow(program);
+            usrWind.Show();
+        }
+
+        private void InformButton_Click(object sender, RoutedEventArgs e)
+        {
+            AboutWindow about = new AboutWindow();
+            about.Show();
         }
     }
 }

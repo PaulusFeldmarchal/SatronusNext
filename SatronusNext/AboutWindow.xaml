@@ -1,0 +1,55 @@
+﻿<Window x:Class="SatronusNext.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SatronusNext"
+        mc:Ignorable="d"
+        Title="About" Height="222" Width="314" ResizeMode="CanMinimize" Icon="Resources/logo2.png"
+        Background="#111221">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AllStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="163*"/>
+        </Grid.RowDefinitions>
+        <Label Style="{StaticResource labelStyle}"  Grid.Row="0" Margin="10,0,223,0">
+            About:
+        </Label>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="5"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5"/>
+                <RowDefinition  />
+                <RowDefinition Height="5"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Column="1" Grid.Row="1">
+                <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" TextBlock.Foreground="LightGray">
+            This program are created specially for the course work from the discipline Computer networks by:
+                </TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" TextBlock.Foreground="LightGray">
+                - Bunak Dmitry;
+                </TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" TextBlock.Foreground="LightGray">
+                - Kozhushko Pavel;
+                </TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" TextBlock.Foreground="LightGray">
+                - Nikitenko Vladislav;
+                </TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" TextBlock.Foreground="LightGray">
+                - Rak Eugene.
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
