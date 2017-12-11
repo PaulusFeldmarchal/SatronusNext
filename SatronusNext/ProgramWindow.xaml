@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SatronusNext"
         xmlns:local1="clr-namespace:SatronusNext.viewModel"
         mc:Ignorable="d"
-        Title="ProgramWindow" Height="600" Width="1000">
+        Title="SatronuNEXT" Height="600" Width="1000" Icon="Resources/logo2.png" MinWidth="575" MinHeight="600" ShowInTaskbar="True">
     <Window.DataContext>
         <local1:EventViewModel />
     </Window.DataContext>
@@ -18,7 +18,6 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid >
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250" />
             <ColumnDefinition />
@@ -66,7 +65,7 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Filter :" Grid.Column="0"  VerticalAlignment="Center" HorizontalAlignment="Left"  Width="77"   FontFamily="Plantagenet Cherokee" FontSize="24" Grid.ColumnSpan="2" Height="32" Margin="0,14" Foreground="#FF8500A2"/>
-                <TextBox Text="{Binding FilterText ,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Margin="5" FontSize="24" FontFamily="Plantagenet Cherokee" TextDecorations="{x:Null}" Foreground="#FF111221" />
+                <TextBox Text="{Binding FilterText ,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Margin="5,14" FontSize="24" FontFamily="Plantagenet Cherokee" TextDecorations="{x:Null}" Foreground="#FF111221" />
             </Grid>
             <ListBox x:Name="EventsList" Grid.Row="1" SelectedItem="{Binding SelectedEvent}" HorizontalContentAlignment="Stretch" ItemsSource="{Binding Items}" Background="#FFC8C2F0" >
                 <ListBox.ItemTemplate >

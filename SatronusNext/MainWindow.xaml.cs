@@ -36,6 +36,7 @@ namespace SatronusNext
         {
             if (emailTextBox.Text.Length != 0 && emailTextBox.Text.Contains("@") && passwordBox.Password.Length != 0)
             {
+                // make some smarter then now
                 program.EMailString = emailTextBox.Text;
                 program.PasswordString = passwordBox.Password;
                 if (program.tryToSignIn())
