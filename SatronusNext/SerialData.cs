@@ -8,8 +8,12 @@ using System.Threading.Tasks;
 
 namespace SatronusNext
 {
+    [Serializable]
     class SerialData
     {
+        private ObservableCollection<Event> list;
+
+        private static String path = @"./Datas";
 
         public SerialData(ObservableCollection<Event> list)
         {
