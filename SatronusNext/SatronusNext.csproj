@@ -119,6 +119,7 @@
     <Compile Include="ChangeWindow.xaml.cs">
       <DependentUpon>ChangeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SerialData.cs" />
     <Compile Include="eventType\AbstractEvent.cs" />
     <Compile Include="eventType\AlarmClock.cs" />
     <Compile Include="eventType\NoteEvent.cs" />

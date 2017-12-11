@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using SatronusNext.viewModel;
 using SatronusNext.eventType;
+using System.ComponentModel;
 
 namespace SatronusNext
 {
@@ -28,6 +29,25 @@ namespace SatronusNext
             InitializeComponent();
             Loaded += ProgramWindow_Loaded;
         }
+        /*
+        protected override void OnStateChanged(EventArgs e)
+        {
+            if (WindowState == WindowState.Minimized) this.Hide();
+
+            
+            base.OnStateChanged(e);
+        }
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            // setting cancel to true will cancel the close request
+            // so the application is not closed
+            e.Cancel = true;
+
+            this.Hide();
+
+            base.OnClosing(e);
+        }
+        */
 
         private void ProgramWindow_Loaded(object sender, RoutedEventArgs e)
         {
