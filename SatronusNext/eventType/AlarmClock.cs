@@ -9,8 +9,10 @@ using System.Collections.ObjectModel;
 
 namespace SatronusNext.eventType
 {
+    [Serializable]
     public class AlarmClock : Event 
     {
+        [NonSerialized]
         SoundPlayer sp;
         public SoundPlayer Music {
             get {
@@ -30,5 +32,6 @@ namespace SatronusNext.eventType
         public AlarmClock(string name, DateTime time, string text ,SoundPlayer sound) : base(name,text,  time) { sp = sound;
             PathPicture = "Resources/1.png";
         }
+        public AlarmClock() { }
     }
 }

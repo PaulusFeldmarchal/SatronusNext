@@ -55,17 +55,28 @@ namespace SatronusNext.viewModel
             {
                 return contComm ?? (contComm = new RelayCommand(() =>
                 {
-                    // сюда проверку 
-                    temp.Name = ChangedName;
-                    temp.Text = ChangedText;
-                    temp.Time = ChangedDate;
-                    if(IsEnablePath)
+                    try
                     {
-                        ((AlarmClock)temp).Music = new System.Media.SoundPlayer(PathToSound);
-                        MessageBox.Show(((AlarmClock)temp).Music.SoundLocation);
+                        if (ChangedName.Length == 0 || Convert.ToString(ChangedDate).Length == 0 || ChangedText.Length == 0 || PathToSound.Length == 0)
+                            return;
+                        temp.Name = ChangedName;
+                        temp.Text = ChangedText;
+                        temp.Time = ChangedDate;
+                        if (IsEnablePath)
+                        {
+                            ((AlarmClock)temp).Music = new System.Media.SoundPlayer(PathToSound);
+                            MessageBox.Show(((AlarmClock)temp).Music.SoundLocation);
+                        }
+                        tempData.Sort();
+                        this.NearEvents(null, null);
+                            SerialData serial = new SerialData(tempData.OurList);
+                            serial.SerializationList();
+                       
                     }
-                    tempData.Sort();
-                    this.NearEvents(null, null);
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }));
             }
         }

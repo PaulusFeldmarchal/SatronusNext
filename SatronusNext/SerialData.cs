@@ -10,25 +10,20 @@ using System.Windows.Threading;
 using System.Windows;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Xml.Serialization;
+using System.Media;
 
 namespace SatronusNext
 {
-    [Serializable]
-    public class SerialData
+    public class SerialData : SoundPlayer
     {
- 
-
         #region fields
         private ObservableCollection<Event> list;
         public ObservableCollection<Event> OurList { get { return list; } set { list = value; } }
-        public int HashSum { private set; get; }
-        public object Messa { get; private set; }
 
         Dispatcher TempDispatcher;
-
-        private static String path = @"./Datas";
         private static String nameFile = "Data.ev";
-        private static String nameCopy = "Copy.ev";
+        private static String nameVarFile = "Num.nu";
         #endregion
 
         public SerialData()
@@ -41,9 +36,7 @@ namespace SatronusNext
         }
         public SerialData(ObservableCollection<Event> list)
         {
-            this.HashSum = 0;
             this.list = list;
-            CalcHash();
         }
         public void Sort()
         {
@@ -88,67 +81,70 @@ namespace SatronusNext
                 return temp;
             });
         }
-        private void CalcHash()
-        {
-            foreach (Event obj in list)
-            {
-                HashSum += obj.Hash();
-            }
-        }
         public void SerializationList()
         {
             if (list == null)
                 return;
-            if (File.Exists(nameFile))
+            if (File.Exists(nameFile) || File.Exists(nameVarFile))
+            {
                 File.Delete(nameFile);
-            BinaryFormatter formatter = new BinaryFormatter();
+                File.Delete(nameVarFile);
+            }
+
             try
-            {
-                using (FileStream fs = new FileStream(path + nameFile, FileMode.OpenOrCreate))
+            {//*/
+                ConverterData[] ser = new ConverterData[this.OurList.Count];
+                int i = 0;
+                foreach (var item in this.OurList)
                 {
-                    formatter.Serialize(fs, this);
+                    ser[i] = ConverterData.ToConverterData(item);
+                    i++;
+                }
+                using (FileStream fs = new FileStream(nameVarFile, FileMode.OpenOrCreate))
+                {
+                    XmlSerializer formatter = new XmlSerializer(typeof(int));
+                    formatter.Serialize(fs, ser.Length);
+                }
+                using (FileStream fs = new FileStream(nameFile, FileMode.OpenOrCreate))
+                { 
+                    XmlSerializer formatter = new XmlSerializer(typeof(ConverterData[]));
+                    formatter.Serialize(fs, ser);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-            }
+                MessageBox.Show(Convert.ToString(ex.InnerException));
+            }//*/
         }
-        public void CreateCopy()
-        {
-            if (list == null)
-                return;
-            if (File.Exists(nameCopy))
-                File.Delete(nameCopy);
-            BinaryFormatter formatter = new BinaryFormatter();
-            try
-            {
-                using (FileStream fs = new FileStream(path + nameCopy, FileMode.Open))
-                {
-                    formatter.Serialize(fs, this);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+
         public ObservableCollection<Event> DeserializationList()
         {
-            BinaryFormatter formatter = new BinaryFormatter();
-            SerialData loadedList = null;
-            using (FileStream fs = new FileStream(path + nameFile, FileMode.Open))
+            if (!File.Exists(nameFile) || !File.Exists(nameFile))
+                return null;
+            ObservableCollection<Event> result = new ObservableCollection<Event>();
+            try
+            {//*/
+                ConverterData[] loadedList = null;
+            using (FileStream fs = new FileStream(nameVarFile, FileMode.OpenOrCreate))
             {
-                loadedList = (SerialData)formatter.Deserialize(fs);
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(int));
+                int len = (int)xmlSerializer.Deserialize(fs);
+                loadedList = new ConverterData[len];
             }
-            if (loadedList == null)
-            {
-                using (FileStream fs = new FileStream(path + nameCopy, FileMode.Open))
+            using (FileStream fs = new FileStream(nameFile, FileMode.OpenOrCreate))
                 {
-                    loadedList = (SerialData)formatter.Deserialize(fs);
+                XmlSerializer formatter = new XmlSerializer(typeof(ConverterData[]));
+                    loadedList = (ConverterData[])formatter.Deserialize(fs);
                 }
+                for (int i = 0; i < loadedList.Length; i++)
+                    result.Add(ConverterData.ToEvent(loadedList[i]));
             }
-            return loadedList.list;
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+                return null;
+            }//*/
+            return result;
         }
     }
 

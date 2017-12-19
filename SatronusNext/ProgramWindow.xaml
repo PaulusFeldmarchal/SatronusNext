@@ -27,6 +27,7 @@
                 <RowDefinition Height="240"/>
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid Grid.Row="3">
@@ -38,7 +39,7 @@
             <Image x:Name="UserPhoto"  Grid.Row="0" Source="Resources/logo2.png" Stretch="Fill"/>
             <Button x:Name="InformButton" Height="auto" Width="auto"  Content="Information" Click="InformButton_Click" Grid.Row="1" Style="{StaticResource buttonStyle}" FontSize="36"  />
             <Button x:Name="UserInformationButton" Height="auto" Width="auto" Click="UserInformationButton_Click" Content="Users Data" Grid.Row="2" Style="{StaticResource buttonStyle}" FontSize="36" />
-            <Button x:Name="LogoutButton" Height="auto" Width="auto" Click="LogoutButton_Click" Content="Logout" Grid.Row="3" Style="{StaticResource buttonStyle}" FontSize="36" Margin="0,0,0,89" />
+            <Button x:Name="LogoutButton" Height="auto" Width="auto" Click="LogoutButton_Click" Content="Logout" Grid.Row="3" Style="{StaticResource buttonStyle}" FontSize="36"/>
         </Grid>
         <Grid Grid.Column="1" >
             <Grid.RowDefinitions>
@@ -88,12 +89,6 @@
                                         </Grid.RowDefinitions>
                                         <TextBlock  Text="{Binding Name}"   Grid.Row="0"  />
                                         <TextBlock  Text="{Binding Time , StringFormat=\{0:MM/dd/yyyy HH:mm\}}"  Grid.Row="1" />
-                                        <Button  x:Name="buttonExit" Grid.Row="0" Height="20" Width="20"  HorizontalAlignment="Right" VerticalAlignment="Top"
-                Opacity="0.995" Background="#00DDDDDD" BorderBrush="#00707070"  >
-                                            <Button.ToolTip>
-                                                Click to delete
-                                            </Button.ToolTip>
-                                        </Button>
                                     </Grid>
                                     <Grid Grid.Column="0">
 

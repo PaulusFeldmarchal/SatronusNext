@@ -119,6 +119,7 @@
     <Compile Include="ChangeWindow.xaml.cs">
       <DependentUpon>ChangeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ConverterData.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="NotificationWindow.xaml.cs">
       <DependentUpon>NotificationWindow.xaml</DependentUpon>

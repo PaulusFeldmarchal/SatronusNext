@@ -7,6 +7,7 @@ using System.Drawing;
 using GalaSoft.MvvmLight;
 namespace SatronusNext.eventType
 {
+    [Serializable]
    public abstract class Event : ObservableObject , IComparable
     {
             string picturepath;
@@ -83,7 +84,5 @@ namespace SatronusNext.eventType
                 // Параметр не является объектом типа Event!
                 throw new ArgumentException("Parameter is not a Event!");
         }
-
-        public int Hash() => Convert.ToInt32(picturepath) + Convert.ToInt32(repeat) + Convert.ToInt32(name) + Convert.ToInt32(text);
     }
 }

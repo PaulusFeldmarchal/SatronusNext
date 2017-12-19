@@ -77,17 +77,22 @@ namespace SatronusNext.viewModel
        public static readonly DependencyProperty ItemsProperty =
 
            DependencyProperty.Register("MyProperty", typeof(ICollectionView), typeof(EventViewModel), new PropertyMetadata(null));
-           
-        public  EventViewModel()
+
+        public EventViewModel()
         {
-            Data.OurList = new ObservableCollection<Event> { 
-            new AlarmClock("Будильник 2",new DateTime(2018,12,12,17,50,00),"txt",new System.Media.SoundPlayer(@"3194.wav")),
-            new AlarmClock("Будильник 3",new DateTime(2017,12,18,14,35,00),"txt",new System.Media.SoundPlayer(@"Resources/zvyk.wav")),
-            new AlarmClock("Pfvtnrf",new DateTime(2017,12,18,13,26,00),"txt",new System.Media.SoundPlayer(@"Resources/zvyk.wav")),
-              new AlarmClock("Pfvtnrf",new DateTime(2013,12,12,12,16,00),"txt",new System.Media.SoundPlayer(@"Resources/zvyk.wav")),
-                new AlarmClock("Pfvtnrf",new DateTime(2014,12,12,12,16,00),"txt",new System.Media.SoundPlayer(@"Resources/zvyk.wav")),
-            new AlarmClock("Заметка 3", new DateTime(2000,12,12,18,12,00) ,"txt",new System.Media.SoundPlayer(@"Resources/zvyk.wav")) };
-             Data.Sort();
+            SerialData serial = new SerialData();
+            Data.OurList = serial.DeserializationList();
+            if (Data.OurList == null)
+            {
+                Data.OurList = new ObservableCollection<Event> {
+                    new AlarmClock("Будильник 2",new DateTime(2018,12,12,17,50,00),"txt",new System.Media.SoundPlayer(@"3194.wav")),
+                    new AlarmClock("Будильник 3",new DateTime(2017,12,18,14,35,00),"txt",new System.Media.SoundPlayer(@"Resources/zvyk.wav")),
+                    new AlarmClock("Pfvtnrf",new DateTime(2017,12,18,13,26,00),"txt",new System.Media.SoundPlayer(@"Resources/zvyk.wav")),
+                    new AlarmClock("Pfvtnrf",new DateTime(2013,12,12,12,16,00),"txt",new System.Media.SoundPlayer(@"Resources/zvyk.wav")),
+                    new AlarmClock("Pfvtnrf",new DateTime(2014,12,12,12,16,00),"txt",new System.Media.SoundPlayer(@"Resources/zvyk.wav")),
+                    new AlarmClock("Заметка 3", new DateTime(2000,12,12,18,12,00) ,"txt",new System.Media.SoundPlayer(@"Resources/zvyk.wav")) };
+            }
+            Data.Sort();
 
             this.NearEvents(null,null);
         
@@ -154,6 +159,15 @@ namespace SatronusNext.viewModel
                     {
                         ListofNearCalls.Remove(SelectedEvent);
                         Data.OurList.Remove(SelectedEvent);
+                        try
+                        {
+                            SerialData serial = new SerialData(Data.OurList);
+                            serial.SerializationList();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                     }
                 }));
             }

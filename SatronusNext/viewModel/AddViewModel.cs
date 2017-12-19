@@ -50,16 +50,30 @@ namespace SatronusNext.viewModel
             {
                 return contComm ?? (contComm = new RelayCommand(() =>
                 {
-                    // сюда проверку 
-                    if (IsEnablePath == true)
+                    try
                     {
-                        temp.OurList.Add(new AlarmClock(AddedName, AddedDate, AddedText, new System.Media.SoundPlayer(PathToSound)));
+                        if (IsEnablePath == true)
+                        {
+                            if (AddedName.Length == 0 || Convert.ToString(AddedDate).Length == 0 || AddedText.Length == 0 || PathToSound == null) { }
+                            else
+                                temp.OurList.Add(new AlarmClock(AddedName, AddedDate, AddedText, new System.Media.SoundPlayer(PathToSound)));
+                        }
+                        else
+                        {
+                            if (AddedName.Length == 0 || Convert.ToString(AddedDate).Length == 0 || AddedText.Length == 0) { }
+                            else
+                                temp.OurList.Add(new Note(AddedName, AddedDate, AddedText));
+                        }
+                        temp.Sort();
+                        this.NearEvents(null, null);
+
+                        SerialData serial = new SerialData(temp.OurList);
+                        serial.SerializationList();
                     }
-                    else {
-                        temp.OurList.Add(new Note(AddedName, AddedDate, AddedText));
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
                     }
-                     temp.Sort();
-                    this.NearEvents(null,null);
                 }));
             }
         }
