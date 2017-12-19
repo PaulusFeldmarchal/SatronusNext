@@ -119,6 +119,10 @@
     <Compile Include="ChangeWindow.xaml.cs">
       <DependentUpon>ChangeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Log.cs" />
+    <Compile Include="NotificationWindow.xaml.cs">
+      <DependentUpon>NotificationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SerialData.cs" />
     <Compile Include="eventType\AbstractEvent.cs" />
     <Compile Include="eventType\AlarmClock.cs" />
@@ -126,6 +130,7 @@
     <Compile Include="RegistrationWindow.xaml.cs">
       <DependentUpon>RegistrationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TrayPos.cs" />
     <Compile Include="UserInformationWindow.xaml.cs">
       <DependentUpon>UserInformationWindow.xaml</DependentUpon>
     </Compile>
@@ -133,6 +138,7 @@
     <Compile Include="viewModel\ChangeWindowViewModel.cs" />
     <Compile Include="viewModel\EventViewModel.cs" />
     <Compile Include="viewModel\MainViewModel.cs" />
+    <Compile Include="viewModel\NotificationViewModel.cs" />
     <Compile Include="viewModel\ViewModelLocator.cs" />
     <Page Include="AboutWindow.xaml">
       <SubType>Designer</SubType>
@@ -162,6 +168,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NotificationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ProgramWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -230,6 +240,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\3194.wav" />
+    <Content Include="Resources\zvyk.wav" />
+    <Resource Include="Resources\pen.jpg" />
+    <Resource Include="Resources\alarmback.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -27,6 +27,8 @@ namespace SatronusNext.eventType
         }
         public AlarmClock(string changedName) : base() { sp = new SoundPlayer(); PathPicture = "Resources/tasks.png";
         }
-        public AlarmClock(string name, DateTime time, string text ,SoundPlayer sound) : base(name,text,  time) { sp = sound; PathPicture = "Resources/1.png"; }
+        public AlarmClock(string name, DateTime time, string text ,SoundPlayer sound) : base(name,text,  time) { sp = sound;
+            PathPicture = "Resources/1.png";
+        }
     }
 }

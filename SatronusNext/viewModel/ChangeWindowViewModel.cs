@@ -19,6 +19,10 @@ namespace SatronusNext.viewModel
     class ChangeWindowViewModel : DependencyObject , INotifyPropertyChanged
     {
         private Event temp;
+        private SerialData tempData;
+
+        private List<Event> NearList;
+        private List<Event> tempList;
 
         private string changedname;
         public string ChangedName { get { return changedname; } set { changedname = value; OnPropertyChanged(); } }
@@ -57,10 +61,11 @@ namespace SatronusNext.viewModel
                     temp.Time = ChangedDate;
                     if(IsEnablePath)
                     {
-                       
                         ((AlarmClock)temp).Music = new System.Media.SoundPlayer(PathToSound);
                         MessageBox.Show(((AlarmClock)temp).Music.SoundLocation);
                     }
+                    tempData.Sort();
+                    this.NearEvents(null, null);
                 }));
             }
         }
@@ -88,8 +93,25 @@ namespace SatronusNext.viewModel
         public ChangeWindowViewModel()
         {
             Messenger.Default.Register<GenericMessage<Event>>(this, SomeFunc);
+            Messenger.Default.Register<GenericMessage<SerialData>>(this, SomeFuncList);
+            Messenger.Default.Register<GenericMessage<List<Event>>>(this, ListSomeFunc);
             //Potoki
-        }   
+        }
+        public async void NearEvents(object sender, EventArgs e)
+        {
+            tempList = await tempData.NearCalls();
+            NearList.Clear();
+            NearList.AddRange(tempList);
+        }
+        private void ListSomeFunc(GenericMessage<List<Event>> msg)
+        {
+             NearList = msg.Content;
+        }
+        private void SomeFuncList(GenericMessage<SerialData> msg)
+        {
+            tempData = msg.Content;
+        }
+
         private void SomeFunc(GenericMessage<Event> msg)
         {
             temp = msg.Content;

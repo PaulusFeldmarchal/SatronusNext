@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Projects\SatronusNext\SatronusNext\App.xaml
-5181457000
-
-15-1725426901
+9-1052606494
+21568331269
+251312872526
 72-250394144
-AllStyles.xaml;ChangeWindow.xaml;MainWindow.xaml;ProgramWindow.xaml;RegistrationWindow.xaml;
+AboutWindow.xaml;AddWindow.xaml;AllStyles.xaml;ChangeWindow.xaml;MainWindow.xaml;NotificationWindow.xaml;ProgramWindow.xaml;RegistrationWindow.xaml;UserInformationWindow.xaml;
 
 False
 

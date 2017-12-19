@@ -10,11 +10,11 @@ none
 false
 TRACE
 D:\Projects\SatronusNext\SatronusNext\App.xaml
-5181457000
-
-20-1356120339
+9-1052606494
+1-1002597079
+28-1242376234
 72-250394144
-AllStyles.xaml;ChangeWindow.xaml;MainWindow.xaml;ProgramWindow.xaml;RegistrationWindow.xaml;
+AboutWindow.xaml;AddWindow.xaml;AllStyles.xaml;ChangeWindow.xaml;MainWindow.xaml;NotificationWindow.xaml;ProgramWindow.xaml;RegistrationWindow.xaml;UserInformationWindow.xaml;
 
-False
+True
 

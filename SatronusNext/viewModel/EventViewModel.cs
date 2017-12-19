@@ -11,21 +11,44 @@ using System.ComponentModel﻿;
 using SatronusNext.eventType;
 using System.Collections.ObjectModel;
 using GalaSoft.MvvmLight.Messaging;
+using System.Threading;
+using System.Windows.Threading;
 
 namespace SatronusNext.viewModel
 {
     class EventViewModel : DependencyObject
     {
-      
         private Event selectedEvent;
         public Event SelectedEvent { get { return selectedEvent; } set { selectedEvent = value; } }
 
+        SerialData Data = new SerialData();
 
+        List<Event> ListofNearCalls;
+        private DispatcherTimer timer = null;
+
+        private void timerStart()
+        {
+            timer = new DispatcherTimer();  // если надо, то в скобках указываем приоритет, например DispatcherPriority.Render
+            timer.Tick += new EventHandler(ShowMagic);
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Start();
+        //    Console.WriteLine("Thread2on :{0}", Thread.CurrentThread.ManagedThreadId);
+        }
+
+        private void timerNearStart()
+        {
+            timer = new DispatcherTimer();  // если надо, то в скобках указываем приоритет, например DispatcherPriority.Render
+            timer.Tick += new EventHandler(NearEvents);
+            timer.Interval = new TimeSpan(0, 30, 0);
+            timer.Start();
+            //    Console.WriteLine("Thread2on :{0}", Thread.CurrentThread.ManagedThreadId);
+        }
+        /*
         ObservableCollection<Event> list;
         public ObservableCollection<Event> OurList { get { return list; } private set { list = value; } }
 
-        
-       public string FilterText
+        */
+        public string FilterText
        {
            get { return (string)GetValue(FilterTextProperty); }
            set { SetValue(FilterTextProperty, value); }
@@ -55,21 +78,58 @@ namespace SatronusNext.viewModel
 
            DependencyProperty.Register("MyProperty", typeof(ICollectionView), typeof(EventViewModel), new PropertyMetadata(null));
            
-        public EventViewModel()
+        public  EventViewModel()
         {
-            OurList = new ObservableCollection<Event> { new Note("Заметка 1",DateTime.Now,"txt"),
-            new Note("Заметка 2",DateTime.Now,"txt"),
-            new Note("Заметка 3", DateTime.Now,"txt"),
-            new Note("Заметка 4",DateTime.Now,"txt"),
-            new AlarmClock("Будильник 1",DateTime.Now,"txt",null),
-            new AlarmClock("Будильник 2",DateTime.Now,"txt",null),
-            new AlarmClock("Будильник 3",DateTime.Now,"txt",null),
-            new AlarmClock("Будильник 4",DateTime.Now,"txt",null) };
-            Items = CollectionViewSource.GetDefaultView(OurList);
+            Data.OurList = new ObservableCollection<Event> { 
+            new AlarmClock("Будильник 2",new DateTime(2018,12,12,17,50,00),"txt",new System.Media.SoundPlayer(@"3194.wav")),
+            new AlarmClock("Будильник 3",new DateTime(2017,12,18,14,35,00),"txt",new System.Media.SoundPlayer(@"Resources/zvyk.wav")),
+            new AlarmClock("Pfvtnrf",new DateTime(2017,12,18,13,26,00),"txt",new System.Media.SoundPlayer(@"Resources/zvyk.wav")),
+              new AlarmClock("Pfvtnrf",new DateTime(2013,12,12,12,16,00),"txt",new System.Media.SoundPlayer(@"Resources/zvyk.wav")),
+                new AlarmClock("Pfvtnrf",new DateTime(2014,12,12,12,16,00),"txt",new System.Media.SoundPlayer(@"Resources/zvyk.wav")),
+            new AlarmClock("Заметка 3", new DateTime(2000,12,12,18,12,00) ,"txt",new System.Media.SoundPlayer(@"Resources/zvyk.wav")) };
+             Data.Sort();
+
+            this.NearEvents(null,null);
+        
+            this.timerStart();
+            this.timerNearStart();
+            Items = CollectionViewSource.GetDefaultView(Data.OurList);
             Items.Filter = FilterEvent;
-            
         }
 
+
+        public async  void NearEvents(object sender, EventArgs e)
+        {
+           ListofNearCalls = await Data.NearCalls();
+
+        }
+        private async void ShowMagic(object sender, EventArgs e)
+        {
+            Event temp=null;
+           await Task.Factory.StartNew(() =>
+            {
+                if (ListofNearCalls != null && ListofNearCalls.Count!=0)
+                {
+                    for (int i = 0; i < ListofNearCalls.Count; i++)
+                    {
+                    if (ListofNearCalls[i].Time.Date == DateTime.Now.Date &&
+                            ListofNearCalls[i].Time.TimeOfDay.Hours == DateTime.Now.Hour &&
+                             ListofNearCalls[i].Time.TimeOfDay.Minutes == DateTime.Now.Minute)
+                         {
+                            temp = ListofNearCalls[i];
+                            ListofNearCalls.Remove(temp);
+                            Data.DeleteEvent(temp);
+                            return;
+                         }
+                    }
+                }
+            });
+            if(temp !=null)
+            {
+                NotificationWindow qew = new NotificationWindow(temp);
+                qew.Show();
+            }
+        }
         private bool FilterEvent(object obj)
         {
             bool result = true;
@@ -92,7 +152,8 @@ namespace SatronusNext.viewModel
                     }
                     else
                     {
-                        OurList.Remove(SelectedEvent);
+                        ListofNearCalls.Remove(SelectedEvent);
+                        Data.OurList.Remove(SelectedEvent);
                     }
                 }));
             }
@@ -110,6 +171,8 @@ namespace SatronusNext.viewModel
                         return;
                     }
                     Messenger.Default.Send(new GenericMessage<Event>(selectedEvent));
+                    Messenger.Default.Send(new GenericMessage<SerialData>(Data));
+                    Messenger.Default.Send(new GenericMessage<List<Event>>(ListofNearCalls));
                 }));
             }
         }
@@ -122,7 +185,8 @@ namespace SatronusNext.viewModel
             {
                 return addComm ?? (addComm = new RelayCommand(() =>
                 {
-                    Messenger.Default.Send(new GenericMessage<ObservableCollection<Event>>(OurList));
+                    Messenger.Default.Send(new GenericMessage<SerialData>(Data));
+                    Messenger.Default.Send(new GenericMessage<List<Event>>(ListofNearCalls));
                 }));
             }
         }

@@ -78,5 +78,13 @@ namespace SatronusNext
             AboutWindow about = new AboutWindow();
             about.Show();
         }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            Log.DeleteSesion();
+            MainWindow main = new MainWindow();
+            main.Show();
+            this.Close();
+        }
     }
 }

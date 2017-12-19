@@ -70,6 +70,7 @@ namespace SatronusNext
                 ProgramWindow programWindow = new ProgramWindow();
                 programWindow.program = program;
                 programWindow.Show();
+                Log.Serialization(program);
                 this.Close();
             }
         }

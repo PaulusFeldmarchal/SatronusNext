@@ -18,7 +18,10 @@ namespace SatronusNext.viewModel
 {
     class AddViewModel : DependencyObject , INotifyPropertyChanged
     {
-        private ObservableCollection<Event> temp;
+        private SerialData temp;
+
+        private List<Event> NearList;
+        private List<Event> tempList;
 
         private string addedname;
         public string AddedName { get { return addedname; } set { addedname = value; } }
@@ -50,14 +53,21 @@ namespace SatronusNext.viewModel
                     // сюда проверку 
                     if (IsEnablePath == true)
                     {
-                        temp.Add(new AlarmClock(AddedName, AddedDate, AddedText, new System.Media.SoundPlayer(PathToSound)));
+                        temp.OurList.Add(new AlarmClock(AddedName, AddedDate, AddedText, new System.Media.SoundPlayer(PathToSound)));
                     }
                     else {
-
-                        temp.Add(new Note(AddedName, AddedDate, AddedText));
+                        temp.OurList.Add(new Note(AddedName, AddedDate, AddedText));
                     }
+                     temp.Sort();
+                    this.NearEvents(null,null);
                 }));
             }
+        }
+        public async void NearEvents(object sender, EventArgs e)
+        {
+            tempList =await temp.NearCalls();
+            NearList.Clear();
+            NearList.AddRange(tempList);
         }
         private ICommand browseComm;
 
@@ -101,14 +111,18 @@ namespace SatronusNext.viewModel
 
         public AddViewModel()
         {
-            Messenger.Default.Register<GenericMessage<ObservableCollection<Event>>>(this, SomeFunc);
+            Messenger.Default.Register<GenericMessage<SerialData>>(this, SomeFunc);
+            Messenger.Default.Register<GenericMessage<List<Event>>>(this, ListSomeFunc);
             //Potoki
         }
-        private void SomeFunc(GenericMessage<ObservableCollection<Event>> msg)
+        private void SomeFunc(GenericMessage<SerialData> msg)
         {
             temp = msg.Content;
         }
-
+        private void ListSomeFunc(GenericMessage<List<Event>> msg)
+        {
+            NearList = msg.Content;
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {

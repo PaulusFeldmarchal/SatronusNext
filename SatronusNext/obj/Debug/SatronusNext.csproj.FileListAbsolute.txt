@@ -55,3 +55,12 @@ D:\Projects\SatronusNext\SatronusNext\bin\Debug\GalaSoft.MvvmLight.Platform.xml
 D:\Projects\SatronusNext\SatronusNext\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 D:\Projects\SatronusNext\SatronusNext\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 D:\Projects\SatronusNext\SatronusNext\obj\Debug\App.baml
+D:\Projects\SatronusNext\SatronusNext\obj\Debug\AboutWindow.g.cs
+D:\Projects\SatronusNext\SatronusNext\obj\Debug\AddWindow.g.cs
+D:\Projects\SatronusNext\SatronusNext\obj\Debug\NotificationWindow.g.cs
+D:\Projects\SatronusNext\SatronusNext\obj\Debug\UserInformationWindow.g.cs
+D:\Projects\SatronusNext\SatronusNext\obj\Debug\SatronusNext_Content.g.cs
+D:\Projects\SatronusNext\SatronusNext\obj\Debug\AboutWindow.baml
+D:\Projects\SatronusNext\SatronusNext\obj\Debug\AddWindow.baml
+D:\Projects\SatronusNext\SatronusNext\obj\Debug\NotificationWindow.baml
+D:\Projects\SatronusNext\SatronusNext\obj\Debug\UserInformationWindow.baml

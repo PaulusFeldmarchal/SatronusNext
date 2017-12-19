@@ -39,7 +39,7 @@
         <TextBox x:Name="ChangeTextTextBox" Grid.Row="0" Grid.Column="1" Text="{Binding ChangedText, Mode=TwoWay }" Style="{StaticResource ResourceKey=textBoxStyle}" 
                  Margin="0,80,0,115" Height="85"/>
 
-        <TextBox x:Name="DateTextBox" Grid.Row="0" Grid.Column="1"  Text="{Binding ChangedDate , Mode=TwoWay}" Style="{StaticResource textBoxStyle}"  
+        <TextBox x:Name="DateTextBox" Grid.Row="0" Grid.Column="1"  Text="{Binding ChangedDate , Mode=TwoWay, StringFormat=\{0:MM/dd/yyyy HH:mm\}}" Style="{StaticResource textBoxStyle}"  
                  Margin="0,192,0,63" Height="25"/>
         <TextBox x:Name="FileTextBox" Grid.Row="0" Grid.Column="1" IsEnabled="{Binding IsEnablePath }" Text="{Binding PathToSound, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource textBoxStyle}" 
                  Margin="0,245,0,10" Height="25"/>

@@ -7,7 +7,7 @@ using System.Drawing;
 using GalaSoft.MvvmLight;
 namespace SatronusNext.eventType
 {
-   public  abstract class Event : ObservableObject
+   public abstract class Event : ObservableObject , IComparable
     {
             string picturepath;
             DateTime time;
@@ -53,7 +53,7 @@ namespace SatronusNext.eventType
             }
         }
             public Event() {
-            Time = DateTime.Now;//временно
+
         }
             public Event(string name, string text, DateTime time)
             {
@@ -73,5 +73,17 @@ namespace SatronusNext.eventType
             this.Text = tempo.Text;
             this.repeat = tempo.repeat;
         }
+
+        public int CompareTo(object obj)
+        {
+            Event temp = obj as Event;
+            if (temp != null)
+                return this.Time.CompareTo(temp.Time);
+            else
+                // Параметр не является объектом типа Event!
+                throw new ArgumentException("Parameter is not a Event!");
+        }
+
+        public int Hash() => Convert.ToInt32(picturepath) + Convert.ToInt32(repeat) + Convert.ToInt32(name) + Convert.ToInt32(text);
     }
 }

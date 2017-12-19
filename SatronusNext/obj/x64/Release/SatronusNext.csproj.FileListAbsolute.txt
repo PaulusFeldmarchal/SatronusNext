@@ -123,3 +123,10 @@ C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\x64\Release\SatronusN
 C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\x64\Release\SatronusNext.csproj.CoreCompileInputs.cache
 C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\x64\Release\SatronusNext.exe
 C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\x64\Release\SatronusNext.pdb
+D:\Projects\SatronusNext\SatronusNext\obj\x64\Release\AboutWindow.g.cs
+D:\Projects\SatronusNext\SatronusNext\obj\x64\Release\UserInformationWindow.g.cs
+D:\Projects\SatronusNext\SatronusNext\obj\x64\Release\AboutWindow.baml
+D:\Projects\SatronusNext\SatronusNext\obj\x64\Release\UserInformationWindow.baml
+D:\Projects\SatronusNext\SatronusNext\obj\x64\Release\NotificationWindow.g.cs
+D:\Projects\SatronusNext\SatronusNext\obj\x64\Release\SatronusNext_Content.g.cs
+D:\Projects\SatronusNext\SatronusNext\obj\x64\Release\NotificationWindow.baml

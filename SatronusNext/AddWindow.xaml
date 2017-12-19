@@ -36,7 +36,7 @@
                 Content="Browse"  TabIndex="3" Grid.Column="2"/>
         <TextBox x:Name="ChangeNameTextBox" Grid.Row="0" Grid.Column="1" Text="{Binding AddedName , Mode=TwoWay}" Style="{StaticResource textBoxStyle}" Margin="0,20,0,234" />
         <TextBox x:Name="ChangeTextTextBox" Grid.Row="0" Grid.Column="1" Text="{Binding AddedText, Mode=TwoWay }" Style="{StaticResource textBoxStyle}" Margin="0,60,0,135" Height="Auto" />
-        <TextBox x:Name="DateTextBox" Grid.Row="0"  Grid.Column="1" Text="{Binding AddedDate , Mode=TwoWay}" Style="{StaticResource textBoxStyle}" Margin="0,174,0,81" />
+        <TextBox x:Name="DateTextBox" Grid.Row="0"  Grid.Column="1" Text="{Binding AddedDate, StringFormat=\{0:MM/dd/yyyy HH:mm\} , Mode=TwoWay}" Style="{StaticResource textBoxStyle}" Margin="0,174,0,81" />
         <TextBox x:Name="FileTextBox" Grid.Row="0" Grid.Column="1" IsEnabled="{Binding IsEnablePath }" Text="{Binding PathToSound, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource textBoxStyle}" Margin="0,242,0,12" />
 
 

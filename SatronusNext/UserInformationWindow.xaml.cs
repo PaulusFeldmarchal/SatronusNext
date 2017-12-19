@@ -59,19 +59,9 @@ namespace SatronusNext
                 program.ImageSource = dlg.FileName;
                 ImageBrushPhoto.ImageSource = new BitmapImage(new Uri(program.ImageSource, UriKind.Relative));
             }
-            try
-            {
-                copyImg();
-            }
-            catch (Exception ex)
-            {
-                System.Windows.MessageBox.Show("Some problems", "Error " + ex.Message, System.Windows.MessageBoxButton.OK);
-            }
-        }
-        private void copyImg()
-        {
 
-
+            Log.Serialization(program);
         }
+
     }
 }

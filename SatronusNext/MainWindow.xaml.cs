@@ -20,11 +20,26 @@ namespace SatronusNext
     /// </summary>
     public partial class MainWindow : Window
     {
-        static private Program program = new Program();
+        private Program program;
 
         public MainWindow()
         {
+
             InitializeComponent();
+            program = Log.Deserialization();
+            if (program != null)
+            {
+                if (program.tryToSignIn())
+                {
+                    ProgramWindow programWindow = new ProgramWindow
+                    {
+                        program = program
+                    };
+                    programWindow.Show();
+                    this.Close();
+                }
+            }
+
         }
 
         private void buttonExit_Click(object sender, RoutedEventArgs e)
@@ -37,12 +52,14 @@ namespace SatronusNext
             if (emailTextBox.Text.Length != 0 && emailTextBox.Text.Contains("@") && passwordBox.Password.Length != 0)
             {
                 // make some smarter then now
+                program = new Program();
                 program.EMailString = emailTextBox.Text;
                 program.PasswordString = passwordBox.Password;
                 if (program.tryToSignIn())
                 {
                     ProgramWindow programWindow = new ProgramWindow();
                     programWindow.program = program;
+                    Log.Serialization(program);
                     programWindow.Show();
                     this.Close();
                 }

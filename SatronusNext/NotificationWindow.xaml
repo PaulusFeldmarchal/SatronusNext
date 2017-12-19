@@ -1,0 +1,25 @@
+﻿<Window x:Class="SatronusNext.NotificationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SatronusNext"
+        xmlns:local1="clr-namespace:SatronusNext.viewModel"
+        mc:Ignorable="d"
+        Title="Kuliti" Height="200" Width="300" ResizeMode="NoResize">
+    <Grid Loaded="NotificationLoaded">
+        <Image x:Name="BackgroundImage"   Stretch="Fill"/>
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="80" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="EventText" TextAlignment="Left"  TextWrapping="Wrap"  Grid.Column="1" Grid.Row="1"  FontSize="16" FontFamily="Modern No. 20" Foreground="Black" OpacityMask="#FF938888"/>
+        </Grid>
+    </Grid>
+</Window>

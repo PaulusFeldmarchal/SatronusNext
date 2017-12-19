@@ -7,6 +7,7 @@ using SatronusNext.eventType;
 
 namespace SatronusNext
 {
+    [Serializable]
     public class Program
     {
         /*
