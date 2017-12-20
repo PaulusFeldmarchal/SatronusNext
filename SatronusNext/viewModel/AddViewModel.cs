@@ -54,14 +54,10 @@ namespace SatronusNext.viewModel
                     {
                         if (IsEnablePath == true)
                         {
-                            if (AddedName.Length == 0 || Convert.ToString(AddedDate).Length == 0 || AddedText.Length == 0 || PathToSound == null) { }
-                            else
                                 temp.OurList.Add(new AlarmClock(AddedName, AddedDate, AddedText, new System.Media.SoundPlayer(PathToSound)));
                         }
                         else
                         {
-                            if (AddedName.Length == 0 || Convert.ToString(AddedDate).Length == 0 || AddedText.Length == 0) { }
-                            else
                                 temp.OurList.Add(new Note(AddedName, AddedDate, AddedText));
                         }
                         temp.Sort();

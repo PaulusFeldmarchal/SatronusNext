@@ -124,7 +124,9 @@
     <Compile Include="NotificationWindow.xaml.cs">
       <DependentUpon>NotificationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SerialData.cs" />
+    <Compile Include="SerialData.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="eventType\AbstractEvent.cs" />
     <Compile Include="eventType\AlarmClock.cs" />
     <Compile Include="eventType\NoteEvent.cs" />
@@ -234,17 +236,12 @@
     <Resource Include="Resources\reset.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Мое.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\tasks.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\3194.wav" />
-    <Content Include="Resources\zvyk.wav" />
     <Resource Include="Resources\pen.jpg" />
     <Resource Include="Resources\alarmback.jpg" />
   </ItemGroup>

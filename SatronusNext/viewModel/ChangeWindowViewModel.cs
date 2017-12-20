@@ -57,15 +57,12 @@ namespace SatronusNext.viewModel
                 {
                     try
                     {
-                        if (ChangedName.Length == 0 || Convert.ToString(ChangedDate).Length == 0 || ChangedText.Length == 0 || PathToSound.Length == 0)
-                            return;
                         temp.Name = ChangedName;
                         temp.Text = ChangedText;
                         temp.Time = ChangedDate;
                         if (IsEnablePath)
                         {
                             ((AlarmClock)temp).Music = new System.Media.SoundPlayer(PathToSound);
-                            MessageBox.Show(((AlarmClock)temp).Music.SoundLocation);
                         }
                         tempData.Sort();
                         this.NearEvents(null, null);

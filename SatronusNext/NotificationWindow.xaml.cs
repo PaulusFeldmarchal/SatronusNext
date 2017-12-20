@@ -44,11 +44,19 @@ namespace SatronusNext
             {
                 BackgroundImage.Source = new BitmapImage(new Uri("Resources/alarmback.jpg", UriKind.Relative));
                 AlarmClock alarm = temp as AlarmClock;
-                try { 
+                try {
                     alarm.Music.Play();
                 }catch(Exception ex)
                 {
-                  //  MessageBox.Show("eweq");
+                    try
+                    {
+                        alarm.Music.SoundLocation = @"Resources/standart.wav";
+                        alarm.Music.Play();
+                    }
+                    catch(Exception exeption)
+                    {
+                        MessageBox.Show(exeption.Message);
+                   }
                 }
             }
             TrayPos tpos = new TrayPos();

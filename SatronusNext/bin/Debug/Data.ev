@@ -1,9 +1,2 @@
 <?xml version="1.0"?>
-<ArrayOfConverterData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ConverterData>
-    <Text>01/01/3000 00:00</Text>
-    <Name>01/01/3000 00:00</Name>
-    <Time>3000-01-01T00:00:00</Time>
-    <Type>false</Type>
-  </ConverterData>
-</ArrayOfConverterData>
+<ArrayOfConverterData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />

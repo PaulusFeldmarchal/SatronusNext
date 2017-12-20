@@ -59,7 +59,6 @@ D:\Projects\SatronusNext\SatronusNext\obj\Debug\AboutWindow.g.cs
 D:\Projects\SatronusNext\SatronusNext\obj\Debug\AddWindow.g.cs
 D:\Projects\SatronusNext\SatronusNext\obj\Debug\NotificationWindow.g.cs
 D:\Projects\SatronusNext\SatronusNext\obj\Debug\UserInformationWindow.g.cs
-D:\Projects\SatronusNext\SatronusNext\obj\Debug\SatronusNext_Content.g.cs
 D:\Projects\SatronusNext\SatronusNext\obj\Debug\AboutWindow.baml
 D:\Projects\SatronusNext\SatronusNext\obj\Debug\AddWindow.baml
 D:\Projects\SatronusNext\SatronusNext\obj\Debug\NotificationWindow.baml
