@@ -29,7 +29,7 @@ namespace SatronusNext
             program = Log.Deserialization();
             if (program != null)
             {
-                if (program.tryToSignIn())
+                if (program.TryToSignIn())
                 {
                     ProgramWindow programWindow = new ProgramWindow
                     {
@@ -55,7 +55,7 @@ namespace SatronusNext
                 program = new Program();
                 program.EMailString = emailTextBox.Text;
                 program.PasswordString = passwordBox.Password;
-                if (program.tryToSignIn())
+                if (program.TryToSignIn())
                 {
                     ProgramWindow programWindow = new ProgramWindow();
                     programWindow.program = program;

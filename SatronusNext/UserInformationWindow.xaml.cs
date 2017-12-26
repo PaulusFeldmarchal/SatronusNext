@@ -58,6 +58,7 @@ namespace SatronusNext
             {
                 program.ImageSource = dlg.FileName;
                 ImageBrushPhoto.ImageSource = new BitmapImage(new Uri(program.ImageSource, UriKind.Relative));
+                program.CopyImage();
             }
 
             Log.Serialization(program);

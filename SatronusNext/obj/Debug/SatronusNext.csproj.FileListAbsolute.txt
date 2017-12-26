@@ -81,7 +81,6 @@ C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\AddWindow.g.cs
 C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\ChangeWindow.g.cs
 C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\NotificationWindow.g.cs
 C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\UserInformationWindow.g.cs
-C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\SatronusNext_Content.g.cs
 C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\App.baml
 C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\AboutWindow.baml

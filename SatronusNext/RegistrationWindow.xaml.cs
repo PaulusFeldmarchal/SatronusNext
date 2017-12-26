@@ -65,7 +65,7 @@ namespace SatronusNext
             program.SurnameString = registrationSurnameTextBox.Text;
             program.EMailString = registrationEMailTextBox.Text;
             program.PasswordString = registrationRetryPasswordBox.Password;
-            if (program.tryToRegist())
+            if (program.TryToRegist())
             {
                 ProgramWindow programWindow = new ProgramWindow();
                 programWindow.program = program;

@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Projects\SatronusNext\SatronusNext\obj\Debug\
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\
 SatronusNext
 none
 false
 DEBUG;TRACE
-D:\Projects\SatronusNext\SatronusNext\App.xaml
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\App.xaml
 9-1052606494
 
-30180157344
-72-250394144
+30-147720307
+72-1508699819
 AboutWindow.xaml;AddWindow.xaml;AllStyles.xaml;ChangeWindow.xaml;MainWindow.xaml;NotificationWindow.xaml;ProgramWindow.xaml;RegistrationWindow.xaml;UserInformationWindow.xaml;
 
 False

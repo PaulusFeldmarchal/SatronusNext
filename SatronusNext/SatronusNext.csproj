@@ -124,14 +124,14 @@
     <Compile Include="NotificationWindow.xaml.cs">
       <DependentUpon>NotificationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SerialData.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="eventType\AbstractEvent.cs" />
     <Compile Include="eventType\AlarmClock.cs" />
     <Compile Include="eventType\NoteEvent.cs" />
     <Compile Include="RegistrationWindow.xaml.cs">
       <DependentUpon>RegistrationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SerialData.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="TrayPos.cs" />
     <Compile Include="UserInformationWindow.xaml.cs">
