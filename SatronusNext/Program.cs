@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using SatronusNext.eventType;
 using System.Drawing;
 using System.Windows;
+using System.IO;
+using IdentityModel;
+using IdentityModel.Client;
+using Newtonsoft.Json.Linq;
 
 namespace SatronusNext
 {
@@ -24,22 +28,11 @@ namespace SatronusNext
         public String ImageSource { get; set; }
         #endregion
 
-        #region methods
-
-        public bool TryToRegist()
-        {
-            return true;
-        }
-
-        public bool TryToSignIn()
-        {
-            return true;
-        }
-
         public void CopyImage()
         {
             try
             {
+                DeleteImage();
                 using (Image img = Image.FromFile(ImageSource))
                 {
                     img.Save(@"Resources/Image.png", System.Drawing.Imaging.ImageFormat.Png);
@@ -51,9 +44,14 @@ namespace SatronusNext
                 MessageBox.Show(ex.Message);
             }
         }
-
-        #endregion
-
+        public static void DeleteImage()
+        {
+            if (File.Exists(@"Resources/Image.png"))
+                File.Delete(@"Resources/Image.png");
+        }
+        public static bool ImageExists()
+        {
+            return File.Exists(@"Resources/Image.png");
+        }
     }
-
 }

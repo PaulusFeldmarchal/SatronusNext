@@ -22,7 +22,7 @@ namespace SatronusNext
         public ObservableCollection<Event> OurList { get { return list; } set { list = value; } }
 
         Dispatcher TempDispatcher;
-        private static String nameFile = "Data.ev";
+        private static String nameFile = @"Resources/Data.ev";
         #endregion
 
         #region methods
@@ -130,6 +130,15 @@ namespace SatronusNext
                 return null;
             }//*/
             return result;
+        }
+        public static void DeleteData()
+        {
+            if (File.Exists(nameFile))
+                File.Delete(nameFile);
+        }
+        public static bool DataExists()
+        {
+            return File.Exists(nameFile);
         }
         #endregion
     }

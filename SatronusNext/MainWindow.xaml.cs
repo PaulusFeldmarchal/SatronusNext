@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -29,7 +30,8 @@ namespace SatronusNext
             program = Log.Deserialization();
             if (program != null)
             {
-                if (program.TryToSignIn())
+                //Task<bool> task = ConnectToServer.TryToSignInAsync();
+                /*if (task.Result)
                 {
                     ProgramWindow programWindow = new ProgramWindow
                     {
@@ -37,7 +39,7 @@ namespace SatronusNext
                     };
                     programWindow.Show();
                     this.Close();
-                }
+                }*/
             }
 
         }
@@ -49,21 +51,24 @@ namespace SatronusNext
 
         private void singInButton_Click(object sender, RoutedEventArgs e)
         {
-            if (emailTextBox.Text.Length != 0 && emailTextBox.Text.Contains("@") && passwordBox.Password.Length != 0)
-            {
+           /* if (emailTextBox.Text.Length != 0 && emailTextBox.Text.Contains("@") && passwordBox.Password.Length != 0)
+            {//*/
                 // make some smarter then now
                 program = new Program();
                 program.EMailString = emailTextBox.Text;
                 program.PasswordString = passwordBox.Password;
-                if (program.TryToSignIn())
-                {
+                Task<bool> task = ConnectToServer.TryToSignInAsync(program.EMailString, program.PasswordString);
+                Thread myThread = new Thread(new ThreadStart());
+                myThread.Start();
+           /* if (task.Result)
+                {//*/
                     ProgramWindow programWindow = new ProgramWindow();
                     programWindow.program = program;
                     Log.Serialization(program);
                     programWindow.Show();
                     this.Close();
-                }
-            }
+               // }
+            //}
         }
 
         private void signUpButton_Click(object sender, RoutedEventArgs e)

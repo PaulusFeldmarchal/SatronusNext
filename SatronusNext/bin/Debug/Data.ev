@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <ArrayOfConverterData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ConverterData>
-    <Text>dsa</Text>
-    <Name>dsa</Name>
-    <Time>2017-12-24T17:37:00</Time>
+    <Text>мапиро</Text>
+    <Name>камнпирто</Name>
+    <Time>2017-12-26T22:00:00</Time>
     <Type>true</Type>
-    <Sound>sad</Sound>
+    <Sound>авапмротл</Sound>
   </ConverterData>
 </ArrayOfConverterData>

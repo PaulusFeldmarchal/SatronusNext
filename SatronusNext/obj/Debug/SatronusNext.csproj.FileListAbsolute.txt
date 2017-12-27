@@ -88,3 +88,14 @@ C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\AddWindow.baml
 C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\ChangeWindow.baml
 C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\NotificationWindow.baml
 C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\obj\Debug\UserInformationWindow.baml
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\bin\Debug\IdentityModel.dll
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\bin\Debug\System.Net.Http.dll
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\bin\Debug\System.Security.Cryptography.Algorithms.dll
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\bin\Debug\System.Security.Cryptography.Encoding.dll
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\bin\Debug\System.Security.Cryptography.Primitives.dll
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\bin\Debug\System.ValueTuple.dll
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\bin\Debug\IdentityModel.xml
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Paulus\source\repos\SatronusNext\SatronusNext\bin\Debug\System.ValueTuple.xml

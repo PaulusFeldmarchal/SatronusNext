@@ -56,6 +56,8 @@ namespace SatronusNext
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
             Log.DeleteSesion();
+            SerialData.DeleteData();
+            Program.DeleteImage();
             MainWindow main = new MainWindow();
             main.Show();
             this.Close();

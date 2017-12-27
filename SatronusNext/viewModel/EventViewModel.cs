@@ -95,7 +95,7 @@ namespace SatronusNext.viewModel
             Data.Sort();
 
             this.NearEvents(null,null);
-        
+       
             this.timerStart();
             this.timerNearStart();
             Items = CollectionViewSource.GetDefaultView(Data.OurList);

@@ -11,7 +11,7 @@ namespace SatronusNext
 {
     class Log
     {
-        private static String nameFile = "Sesion.log";
+        private static String nameFile = @"Resources/Sesion.log";
 
         public static void Serialization(Program Program)
         {
@@ -47,6 +47,10 @@ namespace SatronusNext
                 }
             }
             return tmp;
+        }
+        public static bool LogExists()
+        {
+            return File.Exists(nameFile);
         }
     }
 }
